@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.InsertDataQuill = exports.InsertDataCustom = void 0;
 var InsertDataQuill = (function () {
     function InsertDataQuill(type, value) {
         this.type = type;

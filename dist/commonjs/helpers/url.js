@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.sanitize = void 0;
 function sanitize(str) {
     var val = str;
     val = val.replace(/^\s*/gm, '');

@@ -4,6 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.DeltaInsertOp = void 0;
 var value_types_1 = require("./value-types");
 var InsertData_1 = require("./InsertData");
 var lodash_isequal_1 = __importDefault(require("lodash.isequal"));
@@ -138,6 +139,7 @@ exports.DeltaInsertOp = DeltaInsertOp;
 },{"./InsertData":2,"./value-types":18,"lodash.isequal":19}],2:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.InsertDataQuill = exports.InsertDataCustom = void 0;
 var InsertDataQuill = (function () {
     function InsertDataQuill(type, value) {
         this.type = type;
@@ -157,14 +159,27 @@ exports.InsertDataCustom = InsertDataCustom;
 
 },{}],3:[function(require,module,exports){
 "use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
 var __importStar = (this && this.__importStar) || function (mod) {
     if (mod && mod.__esModule) return mod;
     var result = {};
-    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
-    result["default"] = mod;
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.InsertOpDenormalizer = void 0;
 var value_types_1 = require("./value-types");
 var str = __importStar(require("./helpers/string"));
 var obj = __importStar(require("./helpers/object"));
@@ -199,6 +214,7 @@ exports.InsertOpDenormalizer = InsertOpDenormalizer;
 },{"./helpers/object":14,"./helpers/string":15,"./value-types":18}],4:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.InsertOpsConverter = void 0;
 var DeltaInsertOp_1 = require("./DeltaInsertOp");
 var value_types_1 = require("./value-types");
 var InsertData_1 = require("./InsertData");
@@ -254,14 +270,34 @@ exports.InsertOpsConverter = InsertOpsConverter;
 
 },{"./DeltaInsertOp":1,"./InsertData":2,"./InsertOpDenormalizer":3,"./OpAttributeSanitizer":5,"./value-types":18}],5:[function(require,module,exports){
 "use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
 var __importStar = (this && this.__importStar) || function (mod) {
     if (mod && mod.__esModule) return mod;
     var result = {};
-    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
-    result["default"] = mod;
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
     return result;
 };
+var __spreadArrays = (this && this.__spreadArrays) || function () {
+    for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
+    for (var r = Array(s), k = 0, i = 0; i < il; i++)
+        for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
+            r[k] = a[j];
+    return r;
+};
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.OpAttributeSanitizer = void 0;
 var value_types_1 = require("./value-types");
 var MentionSanitizer_1 = require("./mentions/MentionSanitizer");
 var url = __importStar(require("./helpers/url"));
@@ -288,7 +324,7 @@ var OpAttributeSanitizer = (function () {
         var colorAttrs = ['background', 'color'];
         var font = dirtyAttrs.font, size = dirtyAttrs.size, link = dirtyAttrs.link, script = dirtyAttrs.script, list = dirtyAttrs.list, header = dirtyAttrs.header, align = dirtyAttrs.align, direction = dirtyAttrs.direction, indent = dirtyAttrs.indent, mentions = dirtyAttrs.mentions, mention = dirtyAttrs.mention, width = dirtyAttrs.width, target = dirtyAttrs.target, rel = dirtyAttrs.rel;
         var codeBlock = dirtyAttrs['code-block'];
-        var sanitizedAttrs = booleanAttrs.concat(colorAttrs, [
+        var sanitizedAttrs = __spreadArrays(booleanAttrs, colorAttrs, [
             'font',
             'size',
             'link',
@@ -428,14 +464,34 @@ exports.OpAttributeSanitizer = OpAttributeSanitizer;
 
 },{"./funcs-html":8,"./helpers/array":13,"./helpers/url":16,"./mentions/MentionSanitizer":17,"./value-types":18}],6:[function(require,module,exports){
 "use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
 var __importStar = (this && this.__importStar) || function (mod) {
     if (mod && mod.__esModule) return mod;
     var result = {};
-    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
-    result["default"] = mod;
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
     return result;
 };
+var __spreadArrays = (this && this.__spreadArrays) || function () {
+    for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
+    for (var r = Array(s), k = 0, i = 0; i < il; i++)
+        for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
+            r[k] = a[j];
+    return r;
+};
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.OpToHtmlConverter = exports.DEFAULT_INLINE_STYLES = void 0;
 var funcs_html_1 = require("./funcs-html");
 var value_types_1 = require("./value-types");
 var obj = __importStar(require("./helpers/object"));
@@ -750,7 +806,7 @@ var OpToHtmlConverter = (function () {
             ['underline', 'u'],
             ['code'],
         ];
-        return inlineTags.filter(function (item) { return !!attrs[item[0]]; }).concat(Object.keys(customTagsMap)
+        return __spreadArrays(inlineTags.filter(function (item) { return !!attrs[item[0]]; }), Object.keys(customTagsMap)
             .filter(function (t) { return !inlineTags.some(function (it) { return it[0] == t; }); })
             .map(function (t) { return [t, customTagsMap[t]]; })).map(function (item) {
             return customTagsMap[item[0]]
@@ -768,14 +824,27 @@ exports.OpToHtmlConverter = OpToHtmlConverter;
 
 },{"./OpAttributeSanitizer":5,"./funcs-html":8,"./helpers/array":13,"./helpers/object":14,"./value-types":18}],7:[function(require,module,exports){
 "use strict";
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
 var __importStar = (this && this.__importStar) || function (mod) {
     if (mod && mod.__esModule) return mod;
     var result = {};
-    if (mod != null) for (var k in mod) if (Object.hasOwnProperty.call(mod, k)) result[k] = mod[k];
-    result["default"] = mod;
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.QuillDeltaToHtmlConverter = void 0;
 var InsertOpsConverter_1 = require("./InsertOpsConverter");
 var OpToHtmlConverter_1 = require("./OpToHtmlConverter");
 var Grouper_1 = require("./grouper/Grouper");
@@ -1039,6 +1108,7 @@ exports.QuillDeltaToHtmlConverter = QuillDeltaToHtmlConverter;
 },{"./InsertOpsConverter":4,"./OpToHtmlConverter":6,"./funcs-html":8,"./grouper/Grouper":9,"./grouper/ListNester":10,"./grouper/TableGrouper":11,"./grouper/group-types":12,"./helpers/object":14,"./value-types":18}],8:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.encodeLink = exports.decodeHtml = exports.encodeHtml = exports.makeEndTag = exports.makeStartTag = void 0;
 var EncodeTarget;
 (function (EncodeTarget) {
     EncodeTarget[EncodeTarget["Html"] = 0] = "Html";
@@ -1122,6 +1192,7 @@ function decodeMapping(str, mapping) {
 },{}],9:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Grouper = void 0;
 var DeltaInsertOp_1 = require("./../DeltaInsertOp");
 var array_1 = require("./../helpers/array");
 var group_types_1 = require("./group-types");
@@ -1226,6 +1297,7 @@ exports.Grouper = Grouper;
 },{"./../DeltaInsertOp":1,"./../helpers/array":13,"./group-types":12}],10:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.ListNester = void 0;
 var group_types_1 = require("./group-types");
 var array_1 = require("./../helpers/array");
 var ListNester = (function () {
@@ -1261,8 +1333,7 @@ var ListNester = (function () {
                 gPrev instanceof group_types_1.BlockGroup &&
                 g.op.isList() &&
                 gPrev.op.isList() &&
-                g.op.isSameListAs(gPrev.op) &&
-                g.op.hasSameIndentationAs(gPrev.op));
+                g.op.isSameListAs(gPrev.op));
         });
         return grouped.map(function (item) {
             if (!Array.isArray(item)) {
@@ -1329,6 +1400,7 @@ exports.ListNester = ListNester;
 },{"./../helpers/array":13,"./group-types":12}],11:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.TableGrouper = void 0;
 var group_types_1 = require("./group-types");
 var array_1 = require("../helpers/array");
 var TableGrouper = (function () {
@@ -1377,9 +1449,12 @@ exports.TableGrouper = TableGrouper;
 },{"../helpers/array":13,"./group-types":12}],12:[function(require,module,exports){
 "use strict";
 var __extends = (this && this.__extends) || (function () {
-    var extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
     return function (d, b) {
         extendStatics(d, b);
         function __() { this.constructor = d; }
@@ -1387,6 +1462,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.TableCell = exports.TableRow = exports.TableGroup = exports.ListItem = exports.ListGroup = exports.BlockGroup = exports.InlineGroup = exports.BlotBlock = exports.VideoItem = void 0;
 var InlineGroup = (function () {
     function InlineGroup(ops) {
         this.ops = ops;
@@ -1465,6 +1541,7 @@ exports.TableCell = TableCell;
 },{}],13:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.find = exports.intersperse = exports.sliceFromReverseWhile = exports.groupConsecutiveElementsWhile = exports.flatten = exports.preferSecond = void 0;
 function preferSecond(arr) {
     if (arr.length === 0) {
         return null;
@@ -1534,6 +1611,7 @@ exports.intersperse = intersperse;
 },{}],14:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.assign = void 0;
 function assign(target) {
     var sources = [];
     for (var _i = 1; _i < arguments.length; _i++) {
@@ -1560,6 +1638,7 @@ exports.assign = assign;
 },{}],15:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.tokenizeWithNewLines = void 0;
 function tokenizeWithNewLines(str) {
     var NewLine = '\n';
     if (str === NewLine) {
@@ -1590,6 +1669,7 @@ exports.tokenizeWithNewLines = tokenizeWithNewLines;
 },{}],16:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.sanitize = void 0;
 function sanitize(str) {
     var val = str;
     val = val.replace(/^\s*/gm, '');
@@ -1604,6 +1684,7 @@ exports.sanitize = sanitize;
 },{}],17:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.MentionSanitizer = void 0;
 var OpAttributeSanitizer_1 = require("./../OpAttributeSanitizer");
 var MentionSanitizer = (function () {
     function MentionSanitizer() {
@@ -1649,6 +1730,7 @@ exports.MentionSanitizer = MentionSanitizer;
 },{"./../OpAttributeSanitizer":5}],18:[function(require,module,exports){
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.GroupType = exports.DataType = exports.AlignType = exports.DirectionType = exports.ScriptType = exports.ListType = exports.NewLine = void 0;
 var NewLine = '\n';
 exports.NewLine = NewLine;
 var ListType;

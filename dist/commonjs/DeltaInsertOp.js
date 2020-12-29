@@ -3,6 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.DeltaInsertOp = void 0;
 var value_types_1 = require("./value-types");
 var InsertData_1 = require("./InsertData");
 var lodash_isequal_1 = __importDefault(require("lodash.isequal"));

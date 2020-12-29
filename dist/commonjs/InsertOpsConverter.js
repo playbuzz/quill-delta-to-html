@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.InsertOpsConverter = void 0;
 var DeltaInsertOp_1 = require("./DeltaInsertOp");
 var value_types_1 = require("./value-types");
 var InsertData_1 = require("./InsertData");

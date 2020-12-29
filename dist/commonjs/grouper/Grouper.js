@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Grouper = void 0;
 var DeltaInsertOp_1 = require("./../DeltaInsertOp");
 var array_1 = require("./../helpers/array");
 var group_types_1 = require("./group-types");

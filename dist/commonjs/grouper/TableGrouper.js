@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.TableGrouper = void 0;
 var group_types_1 = require("./group-types");
 var array_1 = require("../helpers/array");
 var TableGrouper = (function () {

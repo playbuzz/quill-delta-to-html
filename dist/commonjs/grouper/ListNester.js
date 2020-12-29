@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.ListNester = void 0;
 var group_types_1 = require("./group-types");
 var array_1 = require("./../helpers/array");
 var ListNester = (function () {
@@ -35,8 +36,7 @@ var ListNester = (function () {
                 gPrev instanceof group_types_1.BlockGroup &&
                 g.op.isList() &&
                 gPrev.op.isList() &&
-                g.op.isSameListAs(gPrev.op) &&
-                g.op.hasSameIndentationAs(gPrev.op));
+                g.op.isSameListAs(gPrev.op));
         });
         return grouped.map(function (item) {
             if (!Array.isArray(item)) {

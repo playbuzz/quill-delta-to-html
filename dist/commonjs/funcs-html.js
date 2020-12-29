@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.encodeLink = exports.decodeHtml = exports.encodeHtml = exports.makeEndTag = exports.makeStartTag = void 0;
 var EncodeTarget;
 (function (EncodeTarget) {
     EncodeTarget[EncodeTarget["Html"] = 0] = "Html";

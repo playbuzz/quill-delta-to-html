@@ -923,7 +923,6 @@ var QuillDeltaToHtmlConverter = (function () {
             funcs_html_1.makeEndTag(this._getListTag(firstItem.item.op)));
     };
     QuillDeltaToHtmlConverter.prototype._renderListItem = function (li) {
-        li.item.op.attributes.indent = 0;
         var converter = new OpToHtmlConverter_1.OpToHtmlConverter(li.item.op, this.converterOptions);
         var parts = converter.getHtmlParts();
         var liElementsHtml = this._renderInlines(li.item.ops, false);
@@ -1698,7 +1697,7 @@ var GroupType;
 exports.GroupType = GroupType;
 
 },{}],19:[function(require,module,exports){
-(function (global){
+(function (global){(function (){
 /**
  * Lodash (Custom Build) <https://lodash.com/>
  * Build: `lodash modularize exports="npm" -o ./`
@@ -3548,7 +3547,7 @@ function stubFalse() {
 
 module.exports = isEqual;
 
-}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+}).call(this)}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
 },{}]},{},[7])(7)
 });
 ; window.QuillDeltaToHtmlConverter = window.QuillDeltaToHtmlConverter ? window.QuillDeltaToHtmlConverter.QuillDeltaToHtmlConverter : window.QuillDeltaToHtmlConverter; 
